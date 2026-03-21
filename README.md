@@ -78,3 +78,22 @@ This project is architected to run **entirely within the Google Cloud "Always Fr
 
 --
 
+## Setting up GCP credentials for local development
+
+Before trying to set up a service account, run these three commands in your terminal:
+
+```bash
+# 1. Login to the CLI (as the person)
+gcloud auth login
+# after login the confirmation page opens at https://docs.cloud.google.com/sdk/auth_success
+# << You are now authenticated with the gcloud CLI! >>
+# run << gcloud components update >> from admin console if needed
+
+# 2. Login for the Code (as the developer)
+gcloud auth application-default login
+
+# 3. Explicitly set your project (replaces your PROJECT_ID)
+gcloud config set project YOUR_PROJECT_ID
+# set up quotas if needed:
+gcloud auth application-default set-quota-project YOUR_PROJECT_ID
+```
