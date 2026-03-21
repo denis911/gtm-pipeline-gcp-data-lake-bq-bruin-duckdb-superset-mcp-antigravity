@@ -104,3 +104,13 @@ Go to the GCP Console BigQuery API page:
 <<https://console.cloud.google.com/apis/library/bigquery.googleapis.com>>
 
 Ensure it says "API Enabled."
+
+Double check in the bash terminal too:
+
+```bash
+gcloud services enable bigquery.googleapis.com bigquerystorage.googleapis.com storage-api.googleapis.com
+
+gcloud services list --enabled | grep bigquery
+```
+
+--
