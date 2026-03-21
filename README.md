@@ -7,7 +7,7 @@ In modern Go-To-Market (GTM) operations, sales teams are drowning in lead lists 
 
 **This project solves the "Integration Wall"** by building a production-grade Data Engineering foundation that identifies **High-Growth Intent signals** (e.g., specific tech adoption or hiring surges) directly from raw datasets, preparing them for autonomous AI Agents.
 
----
+--
 
 ## 🧠 The "Relational Grounding" Advantage
 Unlike basic AI outreach tools that rely on generic company names, this engine uses a **Structured Intent CSV** as its source of truth.
@@ -21,18 +21,18 @@ Unlike basic AI outreach tools that rely on generic company names, this engine u
 
 > **Why is this approach different from others:** This architecture solves the "Integration Wall" by ensuring the AI Agent has a structured "memory" of the target market before it ever sends an email.
 
----
+--
 
 ## 🛠 The 2026 Tech Stack (Everything-as-Code)
 Unlike traditional stacks, this project uses a unified "as-code" approach to ensure 100% reproducibility and agent-friendliness:
 
 * **Infrastructure:** Terraform (GCP) - Manages BigQuery & GCS.
-* **Orchestration & Transformation:** [Bruin](https://bruin.dev) - A single-binary tool replacing both Airflow and dbt.
+* **Orchestration & Transformation:** [Bruin](https://getbruin.com/) - A single-binary tool replacing both Airflow and dbt.
 * **Data Warehouse:** Google BigQuery (Partitioned by date, Clustered by Company).
 * **Visualization:** Apache Superset (Preset) - Semantic-layer based dashboards.
 * **Automation Layer:** Built for seamless integration with Clay, n8n, and Composio.
 
----
+--
 
 ## 📐 Data Architecture
 1.  **Ingestion (Datalake):** Raw data (GitHub Archive / Job Board CSVs) is pulled via Bruin Python tasks and stored as Parquet in **GCS**.
@@ -40,7 +40,7 @@ Unlike traditional stacks, this project uses a unified "as-code" approach to ens
 3.  **Transformation:** Bruin SQL tasks calculate "Growth Velocity" (Company activity WoW/MoM).
 4.  **Semantic Layer:** Data is exposed to Superset for visualization and Clay for GTM execution.
 
----
+--
 
 ## 📊 Zoomcamp Compliance & Evaluation
 This project meets all requirements for the Data Engineering Zoomcamp Capstone:
@@ -51,7 +51,7 @@ This project meets all requirements for the Data Engineering Zoomcamp Capstone:
     1.  *Categorical:* Lead distribution by Industry/Tech Stack.
     2.  *Temporal:* Growth signal volume over a 30-day rolling window.
 
----
+--
 
 ## 🚀 How to Run
 1. **Infrastructure:** `cd terraform && terraform apply`
