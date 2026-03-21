@@ -97,3 +97,10 @@ gcloud config set project YOUR_PROJECT_ID
 # set up quotas if needed:
 gcloud auth application-default set-quota-project YOUR_PROJECT_ID
 ```
+
+Quick Check:
+
+Go to the GCP Console BigQuery API page:
+<<https://console.cloud.google.com/apis/library/bigquery.googleapis.com>>
+
+Ensure it says "API Enabled."
