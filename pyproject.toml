@@ -1,0 +1,7 @@
+[project]
+name = "gtm-pipeline-gcp-data-lake-bq-bruin-duckdb-superset-mcp-antigravity"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
