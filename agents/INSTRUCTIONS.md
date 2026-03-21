@@ -24,9 +24,8 @@ Build a production-grade GTM Lead Intelligence pipeline using a "Everything-as-C
 5. **Validation:** Run `bruin validate` and `bruin run`.
 
 ## MCP servers to use
-- https://mcp.antigravity.com/mcp/gcp - use this MCP server to verify and debug, but make sure the agent still writes the .tf and .sql files into the repository. This ensures your project remains reproducible.
 - repo-docs MCP server to read project documentation from <<https://github.com/denis911/antigravity-bruin-mcp-bigquery>> - this is my earlier project with bruin - may be useful for reference
 - context7 MCP server for general knowledge and documentation
 - bruin mcp server - https://mcp.bruin.dev/mcp
-- https://mcp.duckdb.org/mcp
-- https://mcp.superset.apache.org/mcp
+- DuckDB MCP server - will add if needed to access local data
+- Superset MCP server - will add if needed to access Superset
