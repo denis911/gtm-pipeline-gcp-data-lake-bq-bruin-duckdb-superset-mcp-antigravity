@@ -1,0 +1,16 @@
+name: "gtm-intelligence-pipeline"
+schedule: "daily"
+start_date: "2026-03-20"
+default_connections:
+  google_cloud_platform: "bq_gtm"
+
+variables:
+  project_id:
+    type: string
+    default: "{{ env 'GCP_PROJECT_ID' }}"
+  bucket_name:
+    type: string
+    default: "{{ env 'DATA_LAKE_BUCKET' }}"
+  dataset_name:
+    type: string
+    default: "{{ env 'BIGQUERY_DATASET' }}"
