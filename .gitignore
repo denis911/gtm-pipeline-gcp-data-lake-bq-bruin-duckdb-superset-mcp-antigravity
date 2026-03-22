@@ -205,3 +205,22 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Terraform internal folders
+**/.terraform/*
+
+# Local state files (containing secrets/IDs)
+*.tfstate
+*.tfstate.*
+
+# Variables files (if they contain secrets)
+*.tfvars
+*.tfvars.json
+
+# Crash logs
+crash.log
+crash.*.log
+
+# Sensitive environment variables
+.env
+

@@ -108,9 +108,25 @@ Ensure it says "API Enabled."
 Double check in the bash terminal too:
 
 ```bash
-gcloud services enable bigquery.googleapis.com bigquerystorage.googleapis.com storage-api.googleapis.com
+gcloud services enable bigquery.googleapis.com bigquerystorage.googleapis.com storage.googleapis.com storage-api.googleapis.com
 
 gcloud services list --enabled | grep bigquery
 ```
 
 --
+
+## Terraform
+
+NB - to use Terraform properly we need to make sure services enabled as per above:
+
+```bash
+gcloud services enable bigquery.googleapis.com bigquerystorage.googleapis.com storage.googleapis.com storage-api.googleapis.com
+
+# or for specific project
+gcloud services enable \
+  bigquery.googleapis.com \
+  bigquerystorage.googleapis.com \
+  storage.googleapis.com \
+  storage-api.googleapis.com \
+  --project YOUR_PROJECT_ID
+```
