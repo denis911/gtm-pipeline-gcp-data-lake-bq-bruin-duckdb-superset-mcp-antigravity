@@ -224,3 +224,5 @@ crash.*.log
 # Sensitive environment variables
 .env
 
+
+.bruin.yml

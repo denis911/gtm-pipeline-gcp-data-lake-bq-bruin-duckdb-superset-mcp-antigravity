@@ -1,0 +1,13 @@
+name: "gtm-intelligence-engine"
+environments:
+  default:
+    connections:
+      google_cloud_platform:
+        - name: "bq_gtm"
+          service_account_file: "" # Empty to use Application Default Credentials (ADC)
+          project_id: "{{ env \"GCP_PROJECT_ID\" }}"
+
+variables:
+  project_id: "{{ env \"GCP_PROJECT_ID\" }}"
+  bucket_name: "{{ env \"DATA_LAKE_BUCKET\" }}"
+  dataset_name: "{{ env \"BIGQUERY_DATASET\" }}"

@@ -27,9 +27,10 @@ Develop a dashboard with two tiles by:
 3. **Ingestion:** Create the Python-based GitHub Archive extractor.
 4. **Analytics:** Create the SQL transformation with Partitioning/Clustering.
 5. **Validation:** Run `bruin validate` and `bruin run`.
-6. **Dashboarding:** Create 2 dashboards in Superset to visualize the data. We will do it together step by step - possibly with MCP server for Superset - dashboard should contain at least two tiles, we suggest you include:
-- 1 graph that shows the distribution of some categorical data
-- 1 graph that shows the distribution of the data across a temporal line
+6. **Dashboarding:** Create 2 tile dashboard in Superset to visualize the data. We will do it together step by step - possibly with MCP server for Superset. 
+Two-tile Superset dashboard should be showing:
+- Categorical: Lead distribution by Industry/Tech Stack.
+- Temporal: Growth signal volume over a 30-day rolling window.
 Ensure that your graph is easy to understand by adding references and titles.
 7. **Documentation:** Update project documentation and prepare code for review.
 

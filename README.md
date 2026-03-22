@@ -169,6 +169,36 @@ terraform destroy -var="project_id=YOUR_PROJECT_ID"
 > - **GCS Bucket:** `${PROJECT_ID}-data-lake` (US-CENTRAL1, 30-day auto-delete).
 > - **BigQuery Dataset:** `gtm_intelligence_dwh` (US-CENTRAL1).
 
+--
+
+## ⚙️ Pipeline Setup (Phase 2 - Bruin)
+
+After the infrastructure is ready, we set up the **Bruin** orchestration layer.
+
+### 1. Environment Variables (`.env`)
+Create a `.env` file in the root directory to store your project details. This file is ignored by git for security.
+
+```bash
+GCP_PROJECT_ID=YOUR_PROJECT_ID
+DATA_LAKE_BUCKET=YOUR_PROJECT_ID-data-lake
+BIGQUERY_DATASET=gtm_intelligence_dwh
+```
+
+### 2. Bruin Configuration (`bruin.yaml`)
+The pipeline uses the environment variables to connect to BigQuery. The connection is named `bq_gtm` and uses **Application Default Credentials (ADC)**.
+
+To verify your Bruin setup:
+```bash
+bruin --version
+```
+
+To validate your pipeline (once tasks are added):
+```bash
+bruin validate .
+```
+
+--
+
 ## Terraform
 
 NB - to use Terraform properly we need to make sure services enabled as per above:
