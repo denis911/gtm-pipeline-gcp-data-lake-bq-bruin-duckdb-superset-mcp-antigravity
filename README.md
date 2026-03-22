@@ -113,7 +113,61 @@ gcloud services enable bigquery.googleapis.com bigquerystorage.googleapis.com st
 gcloud services list --enabled | grep bigquery
 ```
 
+```bash
+gcloud services enable \
+  bigquery.googleapis.com \
+  bigquerystorage.googleapis.com \
+  storage.googleapis.com \
+  storage-api.googleapis.com \
+  --project YOUR_PROJECT_ID
+```
+
 --
+
+## 🛠 Infrastructure Commands (Phase 1)
+
+This project uses **Terraform** to manage GCP resources. Follow these steps to deploy the infrastructure.
+
+### 1. Initialize Terraform
+This command downloads the necessary provider plugins (Google Cloud provider).
+```bash
+cd terraform
+terraform init
+```
+
+### 2. Validate Configuration
+Check for syntax errors and internal consistency.
+```bash
+terraform validate
+```
+
+### 3. Preview Changes (Plan)
+Generate an execution plan to see exactly what will be created without making changes yet. Replace `YOUR_PROJECT_ID` with your actual GCP Project ID.
+```bash
+terraform plan -var="project_id=YOUR_PROJECT_ID" -out=tfplan
+```
+
+### 4. Deploy Infrastructure (Apply)
+Apply the planned changes to your GCP project. This will create the GCS bucket and BigQuery dataset.
+
+```bash
+terraform apply "tfplan"
+```
+
+### 5. Cleanup (Destroy)
+To avoid any unexpected costs when you're done testing, you can destroy all resources created by Terraform.
+```bash
+terraform destroy -var="project_id=YOUR_PROJECT_ID"
+```
+
+> [!IMPORTANT]
+> - Ensure all tables in BigQuery are deleted (or `delete_contents_on_destroy = true` as set in our `main.tf`).
+> - This command will remove the GCS bucket and all its contents.
+
+> [!NOTE]
+> Resources managed by this Terraform:
+> - **GCS Bucket:** `${PROJECT_ID}-data-lake` (US-CENTRAL1, 30-day auto-delete).
+> - **BigQuery Dataset:** `gtm_intelligence_dwh` (US-CENTRAL1).
 
 ## Terraform
 
