@@ -38,10 +38,29 @@ bruin run . --start-date 2026-03-19
 ## 📊 Exploration & Visualization
 The final data resides in BigQuery: `gtm_intelligence_dwh.fct_growth_signals`.
 
-### Superset Deployment (Planned)
-We are currently evaluating deployment options for Apache Superset to make the signals visible to an external audience:
-- **Cloud (Preset.io)**: Managed Superset with easy public dashboard sharing.
-- **GCP Self-Hosted**: Deploying Superset via Docker on a Google Compute Engine VM.
+### Superset Deployment (Preset.io)
+We use [Preset.io](https://preset.io) (Managed Superset) to make our dashboards public.
+
+#### 1. Create GCP Service Account
+For Preset to access BigQuery, you need a Service Account JSON key:
+1. Go to **IAM & Admin > Service Accounts** in GCP Console.
+2. Click **Create Service Account** (e.g., `superset-viewer`).
+3. Grant roles: `BigQuery Data Viewer` and `BigQuery Job User`.
+4. Click into the new account > **Keys** tab > **Add Key** > **Create New Key** (JSON).
+5. **DO NOT COMMIT THIS FILE**. Save it locally to upload to Preset.
+
+#### 2. Connect Preset to BigQuery
+1. Sign up for a free Preset account.
+2. Go to **Settings > Database Connections > New Database**.
+3. Select **Google BigQuery**.
+4. Upload your Service Account JSON file.
+5. Set `Project ID` to `evident-axle-339820` and `Dataset` to `gtm_intelligence_dwh`.
+
+### Dashboard-as-Code
+Superset allows exporting dashboards as YAML/ZIP files. Once you design your dashboard in Preset:
+1. Select your dashboard > **Export**.
+2. Save the resulting file in the `dashboards/` directory of this repo.
+3. This ensures the visual layer is versioned alongside your data pipeline.
 
 ---
 Happy Building! For more information on Bruin concepts, visit the [Bruin Documentation](https://getbruin.com/docs/).
