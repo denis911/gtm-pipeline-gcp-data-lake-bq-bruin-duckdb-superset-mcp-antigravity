@@ -60,10 +60,18 @@ This project meets all requirements for the Data Engineering Zoomcamp Capstone:
 
 --
 
-## 💰 Cost-Aware Engineering (Free Tier Strategy)
-This project is architected to run **entirely within the Google Cloud "Always Free" tier**. It is designed for students, hackathon participants, and small startups who need production-grade infra without the bill.
+### 💰 Cost-Aware Engineering (Free Tier Strategy)
+This project is architected to run **entirely within the Google Cloud "Always Free" tier**. 
 
-### ⚖️ Technical Constraints & "Gotchas"
+#### 🧩 The Data Flow & Costs:
+1.  **Ingestion:** We query the **GitHub Archive Public Dataset** in BigQuery. 
+    *   *Free Tier:* First 1TB/month of query processing is free. Our daily ingestion task processes <1GB.
+2.  **Raw Storage:** Filtered records are saved as **Parquet files** in Google Cloud Storage (GCS).
+    *   *Free Tier:* Up to 5GB of storage is free in `us-central1`.
+3.  **Analytics:** Transform raw Parquet into BigQuery tables for dashboarding.
+    *   *Free Tier:* First 10GB of storage and 1TB of query processing is free.
+
+#### ⚖️ Technical Constraints & "Gotchas"
 * **GCP Region:** Resources are locked to `us-central1`. This is mandatory to qualify for the GCS 5GB Free Storage tier.
 * **BigQuery Sandbox:** If running without a credit card, BigQuery operates in "Sandbox Mode." 
     * *Limitation:* Tables will have a **60-day expiration date**. 
@@ -71,12 +79,7 @@ This project is architected to run **entirely within the Google Cloud "Always Fr
 * **Data Lake Lifecycle:** I have implemented a **30-day auto-delete rule** in Terraform for raw files. This ensures your storage never exceeds the 5GB limit while maintaining enough history for development.
 * **Compute:** This project uses the **Bruin CLI** (local/CI runner) rather than a heavy managed service like Composer (managed Airflow), saving ~$350/month in idle costs.
 
-### 🛠 How to keep it free:
-1. Ensure your Terraform `project_id` matches a project with the BigQuery API enabled.
-2. Do not change the `storage_class` from `STANDARD` in `main.tf`.
-3. Stay within 1TB of query processing per month (virtually impossible to hit with this dataset).
-
---
+---
 
 ## Setting up GCP credentials for local development
 
