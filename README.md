@@ -1,16 +1,16 @@
-# 🚀 GTM Intelligence Engine: High-Growth Signal Pipeline
+# GTM Intelligence Engine: High-Growth Signal Pipeline
 
 Building GTM pipeline using GCP buckets, Bruin and Bigquery for production-grade Data Engineering. Everything-as-a-code.
 
-## 📖 The Problem: The "Signal-to-Noise" Gap
+## The Problem: The "Signal-to-Noise" Gap
 In modern Go-To-Market (GTM) operations, sales teams are drowning in lead lists that are "stale" or "generic." Standard databases (Apollo/ZoomInfo) often lag behind real-world growth events.
 
 **This project solves the "Integration Wall"** by building a production-grade Data Engineering foundation that identifies **High-Growth Intent signals** (e.g., specific tech adoption or hiring surges) directly from raw datasets, preparing them for autonomous AI Agents.
 
 ---
 
-## 🧠 The "Relational Grounding" Advantage
-Unlike basic AI outreach tools that rely on generic company names, this engine uses a **Structured Intent CSV** as its source of truth.
+## The "Relational Grounding" Advantage
+Unlike basic AI outreach tools that rely on generic company names, this engine uses a **Structured Intent CSV** as its source of truth  (here a real March 2026 Builtin jobs dataset `structured_jobs.csv` is used as a Source of Truth for keyword extraction and "Relational Grounding").
 
 ### Why this matters for GTM:
 * **Tech-Stack Alignment:** We don't just find "OpenAI"; we find "OpenAI's interest in distributed systems" by matching their hiring requirements with their actual engineering activity.
@@ -27,7 +27,7 @@ Unlike basic AI outreach tools that rely on generic company names, this engine u
 
 ---
 
-## 📐 Data Architecture
+## Data Architecture
 1.  **Ingestion (Datalake):** Raw data (GitHub Archive) is pulled via Bruin Python tasks and stored as Parquet in **GCS**.
 2.  **Warehouse (DWH):** Data is registered as **BigQuery** external tables.
 3.  **Transformation:** Bruin SQL tasks calculate growth metrics and extract company names.
@@ -35,22 +35,33 @@ Unlike basic AI outreach tools that rely on generic company names, this engine u
 
 ---
 
-## 💰 Cost-Aware Engineering (Free Tier Strategy)
+## Cost-Aware Engineering (Free Tier Strategy)
 This project is architected to run **entirely within the Google Cloud "Always Free" tier**. 
 
-### 🧩 The Data Flow & Costs:
+### The Data Flow & Costs:
 1.  **Ingestion:** Queries GitHub Archive Public Dataset (Free Tier: First 1TB/month).
 2.  **Raw Storage:** Parquet files in GCS (Free Tier: Up to 5GB in `us-central1`).
 3.  **Analytics:** BigQuery tables (Free Tier: First 10GB storage, 1TB query processing).
 
-### ⚖️ Technical Constraints & "Gotchas"
+### Technical Constraints & "Gotchas"
 * **GCP Region:** Use `us-central1` for Free Tier eligibility.
 * **BigQuery Sandbox:** Tables may have a 60-day expiration; re-run the idempotent pipeline to recreate.
 * **Data Lake Lifecycle:** 30-day auto-delete rule in Terraform prevents storage overages.
 
 ---
 
-## 🛠 Phase 1: Infrastructure & Credentials
+## Which technologies we use and where to find information
+- Problem Description	-	This README defines the "Signal-to-Noise" gap and explains the "Relational Grounding" solution.
+- Cloud & IaC	-	Fully deployed on GCP with terraform/ templates for GCS and BigQuery.
+- Data Ingestion -	End-to-end Bruin DAG: Python ingestion -> GCS bucket -> BQ External Table -> SQL Transformation.
+- Data Warehouse	-	fct_growth_signals table is Partitioned by signal_date and Clustered by company_name.
+- Transformations	-	Uses Bruin SQL (dbt-equivalent) with materialization and dependency logic.
+- Visualizations / Dashboard	-	Preset.io currently has 1 tile (Top 100 Chart). 
+- How to Reproduce -	please refer to this README. It includes GCP auth, terraform steps, and bruin execution.
+
+---
+
+## Phase 1: Infrastructure & Credentials
 
 ### 1. GCP Credentials Setup
 Before running the pipeline, set up your local environment:
@@ -86,7 +97,7 @@ terraform apply "tfplan"
 
 ---
 
-## ⚙️ Phase 2: Pipeline Configuration (Bruin)
+## Phase 2: Pipeline Configuration (Bruin)
 
 ### 1. Environment Variables (`.env`)
 Create a `.env` file in the root directory:
@@ -102,17 +113,17 @@ Run the end-to-end flow for a specific date:
 # Validate the DAG
 bruin validate .
 
-# Run everything
+# Run everything - pipeline is idempotent and parameterizable for a given date
 bruin run . --start-date 2026-03-19
 ```
 
 ---
 
-## 🔍 GTM Intelligence Tasks (Phases 3-5)
+## GTM Intelligence Tasks (Phases 3-5)
 
 ### Ingestion Shell: `assets/ingest_github_signals.py`
 - Fetches signals (WatchEvent, PushEvent) for tech keywords.
-- Uploads to GCS with Hive Partitioning (`date=YYYY-MM-DD`).
+- Uploads to GCS bucket with Hive Partitioning (`date=YYYY-MM-DD`).
 - Automatically manages the BigQuery External Table.
 
 ### Transformation: `assets/fct_growth_signals.sql`
@@ -123,7 +134,7 @@ bruin run . --start-date 2026-03-19
 
 ---
 
-## 📊 Phase 6: Visualization (Superset)
+## Phase 6: Visualization (Superset)
 
 We use [Preset.io](https://preset.io) (Managed Superset) to make our dashboards public.
 
@@ -151,7 +162,7 @@ Versioning your visuals:
 3. Refer to [dashboards/README.md](file:///c:/tmp/gtm-pipeline-gcp-data-lake-bq-bruin-duckdb-superset-mcp-antigravity/dashboards/README.md) for info.
 
 ### How dashboard graphs look like
-As I could not find a way to create public web links for the dashboard from Preset.io, I have taken screenshots of the dashboard and saved them in the `/dashboards` directory.
+As I could not find a good way to create public web links for the dashboard from Preset.io, I have taken screenshots of the dashboard and saved them in the `/dashboards` directory.
 
 For example:
 
