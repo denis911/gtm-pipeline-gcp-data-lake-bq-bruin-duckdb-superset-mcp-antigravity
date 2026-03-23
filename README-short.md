@@ -63,4 +63,4 @@ Superset allows exporting dashboards as YAML/ZIP files. Once you design your das
 3. This ensures the visual layer is versioned alongside your data pipeline.
 
 ---
-Happy Building! For more information on Bruin concepts, visit the [Bruin Documentation](https://getbruin.com/docs/).
+Happy Building!
