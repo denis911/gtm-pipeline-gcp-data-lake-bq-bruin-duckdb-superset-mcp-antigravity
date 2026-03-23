@@ -1,0 +1,60 @@
+dashboard_title: GTM intellingence
+description: null
+css: null
+slug: null
+certified_by: null
+certification_details: null
+published: false
+uuid: 94527b10-0d06-4b95-8092-08869ac7057c
+metadata:
+  color_scheme_domain: []
+  shared_label_colors: []
+  map_label_colors: {}
+  label_colors: {}
+position:
+  DASHBOARD_VERSION_KEY: v2
+  ROOT_ID:
+    children:
+    - GRID_ID
+    id: ROOT_ID
+    type: ROOT
+  GRID_ID:
+    children:
+    - ROW-N-M2QM92WZ
+    id: GRID_ID
+    parents:
+    - ROOT_ID
+    type: GRID
+  HEADER_ID:
+    id: HEADER_ID
+    meta:
+      text: GTM intellingence
+    type: HEADER
+  ROW-N-M2QM92WZ:
+    children:
+    - CHART-60I1ONJE
+    id: ROW-N-M2QM92WZ
+    meta:
+      '0': ROOT_ID
+      background: BACKGROUND_TRANSPARENT
+    type: ROW
+    parents:
+    - ROOT_ID
+    - GRID_ID
+  CHART-60I1ONJE:
+    children: []
+    id: CHART-60I1ONJE
+    meta:
+      chartId: 74
+      height: 50
+      sliceName: Top 100 chart
+      uuid: 08a264b2-7aa2-4d5b-ab0e-7175f777139b
+      width: 4
+    type: CHART
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-N-M2QM92WZ
+theme_uuid: null
+version: 1.0.0
+tags: []

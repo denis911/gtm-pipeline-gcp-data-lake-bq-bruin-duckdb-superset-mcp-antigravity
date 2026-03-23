@@ -127,8 +127,6 @@ bruin run . --start-date 2026-03-19
 
 We use [Preset.io](https://preset.io) (Managed Superset) to make our dashboards public.
 
-Dashboard is live on Preset cloud at [GTM intellingence](https://XXX).
-
 ### 1. Create GCP Service Account
 Preset requires a Service Account JSON key:
 1. Go to **IAM & Admin > Service Accounts** in GCP Console.
@@ -153,4 +151,4 @@ Versioning your visuals:
 3. Refer to [dashboards/README.md](file:///c:/tmp/gtm-pipeline-gcp-data-lake-bq-bruin-duckdb-superset-mcp-antigravity/dashboards/README.md) for info.
 
 ---
-Happy Building! For more information on Bruin, visit [getbruin.com](https://getbruin.com).
+Happy Building! 

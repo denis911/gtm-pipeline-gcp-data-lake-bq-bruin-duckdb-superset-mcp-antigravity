@@ -1,0 +1,15 @@
+database_name: Google BigQuery
+sqlalchemy_uri: bigquery://evident-axle-339820/
+cache_timeout: null
+expose_in_sqllab: true
+allow_run_async: false
+allow_ctas: false
+allow_cvas: false
+allow_dml: true
+allow_file_upload: false
+extra:
+  allows_virtual_table_explore: true
+  cost_estimate_enabled: true
+impersonate_user: false
+uuid: adfaf0d4-75fd-4593-b4dc-28174363b432
+version: 1.0.0

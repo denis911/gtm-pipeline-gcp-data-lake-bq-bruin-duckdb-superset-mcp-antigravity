@@ -1,0 +1,73 @@
+slice_name: Top 100 chart
+description: null
+certified_by: null
+certification_details: null
+viz_type: table
+params:
+  datasource: 21__table
+  viz_type: table
+  slice_id: 74
+  matrixify_enable_horizontal_layout: false
+  matrixify_show_column_headers: true
+  matrixify_mode_columns: metrics
+  matrixify_dimension_selection_mode_columns: members
+  matrixify_dimension_columns:
+    dimension: ''
+    values: []
+  matrixify_topn_value_columns: 10
+  matrixify_topn_order_columns: desc
+  matrixify_enable_vertical_layout: false
+  matrixify_show_row_labels: true
+  matrixify_mode_rows: dimensions
+  matrixify_dimension_selection_mode_rows: members
+  matrixify_dimension_rows:
+    dimension: ''
+    values: []
+  matrixify_topn_value_rows: 10
+  matrixify_topn_order_rows: desc
+  matrixify_row_height: 300
+  matrixify_fit_columns_dynamically: true
+  matrixify_charts_per_row: 3
+  matrixify_cell_title_template: ''
+  query_mode: raw
+  groupby: []
+  temporal_columns_lookup:
+    signal_date: true
+    processed_at: true
+  all_columns:
+  - company_name
+  - signal_count
+  - repo_name
+  percent_metrics: []
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: signal_date
+  order_by_cols:
+  - '["signal_count", false]'
+  server_pagination: false
+  row_limit: 100
+  table_timestamp_format: smart_date
+  include_search: false
+  allow_rearrange_columns: false
+  allow_render_html: true
+  show_cell_bars: true
+  align_pn: false
+  color_pn: true
+  comparison_color_enabled: false
+  comparison_color_scheme: Green
+  comparison_type: values
+  extra_form_data: {}
+  dashboards:
+  - 8
+query_context: '{"datasource":{"id":21,"type":"table"},"force":false,"queries":[{"filters":[{"col":"signal_date","op":"TEMPORAL_RANGE","val":"No
+  filter"}],"extras":{"having":"","where":""},"applied_time_extras":{},"columns":["company_name","signal_count","repo_name"],"orderby":[["signal_count",false]],"annotation_layers":[],"row_limit":100,"series_limit":0,"group_others_when_limit_reached":false,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{},"post_processing":[],"time_offsets":[]}],"form_data":{"datasource":"21__table","viz_type":"table","slice_id":74,"matrixify_enable_horizontal_layout":false,"matrixify_show_column_headers":true,"matrixify_mode_columns":"metrics","matrixify_dimension_selection_mode_columns":"members","matrixify_dimension_columns":{"dimension":"","values":[]},"matrixify_topn_value_columns":10,"matrixify_topn_order_columns":"desc","matrixify_enable_vertical_layout":false,"matrixify_show_row_labels":true,"matrixify_mode_rows":"dimensions","matrixify_dimension_selection_mode_rows":"members","matrixify_dimension_rows":{"dimension":"","values":[]},"matrixify_topn_value_rows":10,"matrixify_topn_order_rows":"desc","matrixify_row_height":300,"matrixify_fit_columns_dynamically":true,"matrixify_charts_per_row":3,"matrixify_cell_title_template":"","query_mode":"raw","groupby":[],"temporal_columns_lookup":{"signal_date":true,"processed_at":true},"all_columns":["company_name","signal_count","repo_name"],"percent_metrics":[],"adhoc_filters":[{"clause":"WHERE","comparator":"No
+  filter","expressionType":"SIMPLE","operator":"TEMPORAL_RANGE","subject":"signal_date"}],"order_by_cols":["[\"signal_count\",
+  false]"],"server_pagination":false,"row_limit":100,"table_timestamp_format":"smart_date","include_search":false,"allow_rearrange_columns":false,"allow_render_html":true,"show_cell_bars":true,"align_pn":false,"color_pn":true,"comparison_color_enabled":false,"comparison_color_scheme":"Green","comparison_type":"values","extra_form_data":{},"dashboards":[8],"force":false,"result_format":"json","result_type":"full","include_time":false},"result_format":"json","result_type":"full"}'
+cache_timeout: null
+uuid: 08a264b2-7aa2-4d5b-ab0e-7175f777139b
+version: 1.0.0
+dataset_uuid: e2a4708f-3b76-469f-9161-98950f8b4e10
+tags: []
