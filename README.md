@@ -150,5 +150,12 @@ Versioning your visuals:
 2. Save it in the `/dashboards` directory.
 3. Refer to [dashboards/README.md](file:///c:/tmp/gtm-pipeline-gcp-data-lake-bq-bruin-duckdb-superset-mcp-antigravity/dashboards/README.md) for info.
 
+### How dashboard graphs look like
+As I could not find a way to create public web links for the dashboard from Preset.io, I have taken screenshots of the dashboard and saved them in the `/dashboards` directory.
+
+For example:
+
+Top 100 Chart: ![image](dashboards/top-100-chart-2026-03-23T20-40-04.587Z.jpg)
+
 ---
 Happy Building! 
