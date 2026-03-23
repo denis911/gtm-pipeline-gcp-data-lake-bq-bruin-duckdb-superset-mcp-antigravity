@@ -7,7 +7,7 @@ In modern Go-To-Market (GTM) operations, sales teams are drowning in lead lists 
 
 **This project solves the "Integration Wall"** by building a production-grade Data Engineering foundation that identifies **High-Growth Intent signals** (e.g., specific tech adoption or hiring surges) directly from raw datasets, preparing them for autonomous AI Agents.
 
---
+---
 
 ## 🧠 The "Relational Grounding" Advantage
 Unlike basic AI outreach tools that rely on generic company names, this engine uses a **Structured Intent CSV** as its source of truth.
@@ -17,7 +17,7 @@ Unlike basic AI outreach tools that rely on generic company names, this engine u
 * **Composite Scoring:** The engine calculates a "High-Growth Score" by joining distinct signals (Direct vs Implicit).
 * **Precision Filtering:** By using the CSV as a lookup table, we reduce "API Noise" and ensure that enrichment credits are only spent on accounts with a proven hiring budget.
 
---
+---
 
 ## 🛠 The 2026 Tech Stack (Everything-as-Code)
 * **Infrastructure:** [Terraform](https://www.terraform.io/) (GCP) - Manages BigQuery & GCS.
@@ -25,7 +25,7 @@ Unlike basic AI outreach tools that rely on generic company names, this engine u
 * **Data Warehouse:** Google BigQuery (Partitioned by date, Clustered by Company).
 * **Visualization:** [Apache Superset](https://superset.apache.org/) (Preset) - Semantic-layer based dashboards.
 
---
+---
 
 ## 📐 Data Architecture
 1.  **Ingestion (Datalake):** Raw data (GitHub Archive) is pulled via Bruin Python tasks and stored as Parquet in **GCS**.
@@ -33,7 +33,7 @@ Unlike basic AI outreach tools that rely on generic company names, this engine u
 3.  **Transformation:** Bruin SQL tasks calculate growth metrics and extract company names.
 4.  **Semantic Layer:** Data is exposed to Superset for visualization.
 
---
+---
 
 ## 💰 Cost-Aware Engineering (Free Tier Strategy)
 This project is architected to run **entirely within the Google Cloud "Always Free" tier**. 
@@ -127,7 +127,7 @@ bruin run . --start-date 2026-03-19
 
 We use [Preset.io](https://preset.io) (Managed Superset) to make our dashboards public.
 
-Dashboard is live on Preset cloud at [GTM intellingence](https://da6760dc.us1a.app.preset.io/superset/dashboard/8/?native_filters_key=HPMqCCBWY3E).
+Dashboard is live on Preset cloud at [GTM intellingence](https://XXX).
 
 ### 1. Create GCP Service Account
 Preset requires a Service Account JSON key:
