@@ -127,11 +127,15 @@ bruin run . --start-date 2026-03-19
 
 We use [Preset.io](https://preset.io) (Managed Superset) to make our dashboards public.
 
+Dashboard is live on Preset cloud at [GTM intellingence](https://da6760dc.us1a.app.preset.io/superset/dashboard/8/?native_filters_key=HPMqCCBWY3E).
+
 ### 1. Create GCP Service Account
 Preset requires a Service Account JSON key:
 1. Go to **IAM & Admin > Service Accounts** in GCP Console.
 2. Create account `superset-viewer`.
-3. Grant roles: `BigQuery Data Viewer` and `BigQuery Job User`.
+3. Grant roles: 
+- If you plan to use Preset for read-only access, granting `BigQuery Data Viewer`, `BigQuery Metadata Viewer`, `BigQuery Read Session User` and `BigQuery Job User` roles should be sufficient.
+- If you also want to execute DML queries in Preset, grant the `BigQuery Data Editor` role as well.
 4. Generate and download a **JSON Key**.
 
 ### 2. Connect Preset to BigQuery
@@ -139,6 +143,8 @@ Preset requires a Service Account JSON key:
 2. Connect Database > Google BigQuery.
 3. Upload your Service Account JSON.
 4. Dataset: `gtm_intelligence_dwh`.
+5. IP Allowlist. For security reasons you may need to allow Preset's 
+Public IPs: `35.161.45.11 / 52.32.136.34 / 54.244.23.85`
 
 ### Dashboard-as-Code
 Versioning your visuals:
