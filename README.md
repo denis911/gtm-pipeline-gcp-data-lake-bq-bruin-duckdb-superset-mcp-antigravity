@@ -19,7 +19,7 @@ Unlike basic AI outreach tools that rely on generic company names, this engine u
 
 ---
 
-## 🛠 The 2026 Tech Stack (Everything-as-Code)
+## The 2026 Tech Stack (Everything-as-Code)
 * **Infrastructure:** [Terraform](https://www.terraform.io/) (GCP) - Manages BigQuery & GCS.
 * **Orchestration & Transformation:** [Bruin](https://getbruin.com/) - A single-binary tool for ingestion and SQL/Python transformations.
 * **Data Warehouse:** Google BigQuery (Partitioned by date, Clustered by Company).
@@ -52,9 +52,9 @@ This project is architected to run **entirely within the Google Cloud "Always Fr
 
 ## Data Engineering Zoomcamp 2026 Requirements
 
-This project is explicitly designed to exceed the Capstone evaluation criteria. Below is the technical breakdown of how we meet each requirement:
+Below is the technical breakdown of how we considered each requirement:
 
-### 📐 Project Architecture
+### Project Architecture
 ```text
 ┌────────────────┐      ┌──────────────────┐      ┌──────────────────┐      ┌──────────────────┐
 │  Data Source   │      │ Orchestration    │      │    Data Lake     │      │  Data Warehouse  │
@@ -76,7 +76,7 @@ This project is explicitly designed to exceed the Capstone evaluation criteria. 
                                                                             [Public Dashboard]
 ```
 
-### 📋 Detailed Criteria Fulfillment
+### Detailed Criteria Fulfillment
 *   **Problem Description**: Defined in the first section. We solve the "Integration Wall" for GTM by grounding AI agents in live engineering activity.
 *   **Cloud & IaC**: 
     *   **Cloud**: All data processing (Storage, DWH) happens in Google Cloud Platform. 
